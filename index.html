@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="riot-app">
   <head>
-    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="scss/main.min.css">
     <meta charset="UTF-8">
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
@@ -12,7 +12,101 @@
     <script src="js/app.js" type="text/javascript"></script>
     <title>Riot App</title>
   </head>
-  <body>
-    <div class="content">hello</div>
+  <body class="base">
+    <div ng-controller="appCtrl" class="globalContainer">
+      <div class="box namePlate"></div>
+      <div class="box coverLetter"></div>
+      <div class="box kapsuliIntro"> 
+        <p>what can I bring to Riot Game right now</p>
+      </div>
+      <div class="box kapsuli">
+        <div class="playerBox">
+          <div class="playerSelectorsBox">
+            <div class="playerContainer">
+              <div ng-show="playerSelectorModel === 'kap'" class="player kapsuliPlayer"><img src="img/test-player-1.png" alt=""></div>
+              <div ng-show="playerSelectorModel === 'lcs'" class="player lcsPlayer"><img src="img/test-player-2.png" alt=""></div>
+              <div ng-show="playerSelectorModel === 'star'" class="player allStarPlayer"><img src="img/test-player-3.png" alt=""></div>
+            </div>
+            <div class="selectors">
+              <div ng-model="playerSelectorModel" uib-btn-radio="'kap'" class="kap select">Kapsuli Player</div>
+              <div ng-model="playerSelectorModel" uib-btn-radio="'lcs'" class="lcs select">LCS</div>
+              <div ng-model="playerSelectorModel" uib-btn-radio="'star'" class="star select">All Star 2016</div>
+            </div>
+          </div>
+        </div>
+        <div class="contentBox">
+          <h1 class="title">Kapsuli</h1>
+          <div class="content">
+            <p>Founded with two friends an I to help the streaming community. Kapsuli is a social media platform to help twitch broadcaster to build a strong social presence while streaming.  </p>
+            <p>The platform allows you to schedule tweet to be send while you are broadcasting. It also features an embed twitch player directly visible from within twitter.</p>
+            <div class="capsuleDescription">
+              <div ng-show="playerSelectorModel === 'kap'" class="kapDescription">
+                <h1>kap Player powered by Kapsuli</h1>
+                <p>• Api based automated refresh</p>
+                <p>• External links directly in Twitter</p>
+                <p>• promotional space for brand exposure within twitter.</p>
+                <p>• InGame Stats / scheduling</p>
+              </div>
+              <div ng-show="playerSelectorModel === 'lcs'" class="lcsDescription">
+                <h1>LCS Player powered by Kapsuli</h1>
+                <p>• Api based automated refresh</p>
+                <p>• External links directly in Twitter</p>
+                <p>• promotional space for brand exposure within twitter.</p>
+                <p>• InGame Stats / scheduling</p>
+              </div>
+              <div ng-show="playerSelectorModel === 'star'" class="starDescription">
+                <h1>star Player powered by Kapsuli</h1>
+                <p>• Api based automated refresh</p>
+                <p>• External links directly in Twitter</p>
+                <p>• promotional space for brand exposure within twitter.</p>
+                <p>• InGame Stats / scheduling</p>
+              </div>
+            </div>
+          </div>
+          <div class="access"></div>
+        </div>
+      </div>
+      <div class="box skillsIntro">
+        <p>What will I be bringing as a Rioter ?</p>
+      </div>
+      <div class="box skills">
+        <div class="skillSelectors">
+          <div ng-model="skillSelectorModel" uib-btn-radio="'tool'" class="tool skillselect">Tools</div>
+          <div ng-model="skillSelectorModel" uib-btn-radio="'product'" class="product skillselect">Product</div>
+          <div ng-model="skillSelectorModel" uib-btn-radio="'knowledge'" class="knowledge skillselect">Knowledge</div>
+          <div ng-model="skillSelectorModel" uib-btn-radio="'observation'" class="observation skillselect">Observation</div>
+          <div ng-model="skillSelectorModel" uib-btn-radio="'teamwork'" class="teamwork skillselect">Teamwork</div>
+        </div>
+        <div class="skillContent">
+          <div ng-show="skillSelectorModel === 'tool'" class="content tool">
+            <p>I am a mechanical player. I can CS well and land clutch skill shots.</p>
+            <p>professional grade mastery of commonly used tool and language used across the creative industry.</p>
+            <p>Ps Ai Ae An Id Sketch HTML5 CSS3 Angular PHP Jade photography 3D</p>
+          </div>
+          <div ng-show="skillSelectorModel === 'product'" class="content product">
+            <p>I know what a product is and how to deal with every aspect of it. </p>
+            <p>from brainstorming ideas, technical development problem solving, media campaign implications, meeting with community feedback based reviews and modifications entailed by it.</p>
+          </div>
+          <div ng-show="skillSelectorModel === 'knowledge'" class="content knowledge">
+            <p>I have what I would call "critical empathy", I know how to analyse and identify to a targeted audience and discern what can their need may be presently and in the future.</p>
+          </div>
+          <div ng-show="skillSelectorModel === 'observation'" class="content observation">
+            <p>I keep myself informed of the latest design and tech trends to make the best use of current and upcoming innovation in the field I am working in.  </p>
+          </div>
+          <div ng-show="skillSelectorModel === 'teamwork'" class="content teamwork">
+            <p>Although I am very efficient on my own, I work best as part of a unit. </p>
+            <p>I am highly reliable when push comes to shove and will not hesitate to come to the rescue and make clutching pro flash taunt.</p>
+          </div>
+        </div>
+      </div>
+      <div class="box resumeIntro">
+        <p>What have I done before ?</p>
+      </div>
+      <div class="box resume">
+        <div class="content"></div>
+        <div class="accessResume"></div>
+      </div>
+      <div class="link"></div>
+    </div>
   </body>
 </html>

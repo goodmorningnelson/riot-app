@@ -1,9 +1,9 @@
 //output:../index.html
 
 doctype html
-html
+html(ng-app="riot-app")
   head
-    link(rel='stylesheet', href='css/main.min.css')
+    link(rel='stylesheet', href='scss/main.min.css')
     meta(charset='UTF-8')
     script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js')
     script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js')
@@ -13,5 +13,84 @@ html
     link(href='//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
     script(src='js/app.js', type='text/javascript')
     title Riot App
-  body
-    .content hello
+  body.base
+    .globalContainer(ng-controller="appCtrl")
+      .box.namePlate
+      .box.coverLetter
+      .box.kapsuliIntro 
+        p what can I bring to Riot Game right now
+      .box.kapsuli
+        .playerBox
+          .playerSelectorsBox
+            .playerContainer
+              .player.kapsuliPlayer(ng-show="playerSelectorModel === 'kap'")
+                img(src="img/test-player-1.png", alt="")
+              .player.lcsPlayer(ng-show="playerSelectorModel === 'lcs'")
+                img(src="img/test-player-2.png", alt="")
+              .player.allStarPlayer(ng-show="playerSelectorModel === 'star'")
+                img(src="img/test-player-3.png", alt="")
+            .selectors
+              .kap.select(ng-model="playerSelectorModel" uib-btn-radio="'kap'") Kapsuli Player
+              .lcs.select(ng-model="playerSelectorModel" uib-btn-radio="'lcs'") LCS
+              .star.select(ng-model="playerSelectorModel" uib-btn-radio="'star'") All Star 2016
+        .contentBox
+          h1.title Kapsuli
+          .content
+            p Founded with two friends an I to help the streaming community. Kapsuli is a social media platform to help twitch broadcaster to build a strong social presence while streaming.  
+            p The platform allows you to schedule tweet to be send while you are broadcasting. It also features an embed twitch player directly visible from within twitter.
+            .capsuleDescription
+              .kapDescription(ng-show="playerSelectorModel === 'kap'")
+                h1 kap Player powered by Kapsuli
+                p • Api based automated refresh
+                p • External links directly in Twitter
+                p • promotional space for brand exposure within twitter.
+                p • InGame Stats / scheduling
+              .lcsDescription(ng-show="playerSelectorModel === 'lcs'")
+                h1 LCS Player powered by Kapsuli
+                p • Api based automated refresh
+                p • External links directly in Twitter
+                p • promotional space for brand exposure within twitter.
+                p • InGame Stats / scheduling
+              .starDescription(ng-show="playerSelectorModel === 'star'")
+                h1 star Player powered by Kapsuli
+                p • Api based automated refresh
+                p • External links directly in Twitter
+                p • promotional space for brand exposure within twitter.
+                p • InGame Stats / scheduling
+          .access
+            
+      .box.skillsIntro
+        p What will I be bringing as a Rioter ?
+        
+      .box.skills
+        .skillSelectors
+          .tool.skillselect(ng-model="skillSelectorModel" uib-btn-radio="'tool'") Tools
+          .product.skillselect(ng-model="skillSelectorModel" uib-btn-radio="'product'") Product
+          .knowledge.skillselect(ng-model="skillSelectorModel" uib-btn-radio="'knowledge'") Knowledge
+          .observation.skillselect(ng-model="skillSelectorModel" uib-btn-radio="'observation'") Observation
+          .teamwork.skillselect(ng-model="skillSelectorModel" uib-btn-radio="'teamwork'") Teamwork
+          
+        .skillContent
+          .content.tool(ng-show="skillSelectorModel === 'tool'")
+            p I am a mechanical player. I can CS well and land clutch skill shots.
+            p professional grade mastery of commonly used tool and language used across the creative industry.
+            p Ps Ai Ae An Id Sketch HTML5 CSS3 Angular PHP Jade photography 3D
+          .content.product(ng-show="skillSelectorModel === 'product'")
+            p I know what a product is and how to deal with every aspect of it. 
+            p from brainstorming ideas, technical development problem solving, media campaign implications, meeting with community feedback based reviews and modifications entailed by it.
+          .content.knowledge(ng-show="skillSelectorModel === 'knowledge'")
+            p I have what I would call "critical empathy", I know how to analyse and identify to a targeted audience and discern what can their need may be presently and in the future.
+          .content.observation(ng-show="skillSelectorModel === 'observation'")
+            p I keep myself informed of the latest design and tech trends to make the best use of current and upcoming innovation in the field I am working in.  
+          .content.teamwork(ng-show="skillSelectorModel === 'teamwork'")
+            p Although I am very efficient on my own, I work best as part of a unit. 
+            p I am highly reliable when push comes to shove and will not hesitate to come to the rescue and make clutching pro flash taunt.
+      
+      .box.resumeIntro
+        p What have I done before ?
+        
+      .box.resume
+        .content
+        .accessResume
+      
+      .link

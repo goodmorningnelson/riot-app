@@ -1,0 +1,302 @@
+@import "_typography";
+@import "_colors";
+@import "_responsive";
+@import "_vars";
+@import "_mixins";
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  //font-family: arial !important;
+  //-webkit-user-select: none;
+
+  /*::selection {
+    background: #75CDC5;
+    color: #fff;
+  }
+  ::-moz-selection {
+    background: #75CDC5;
+    color: #fff;
+  }*/
+
+  //outline: 2px solid blue;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+
+  @each $color-key, $color-variants in $app-colors {
+    $c-font: map-get($color-variants, "font");
+    $c-font-sub: map-get($color-variants, "font-sub");
+    $c-border: map-get($color-variants, "border");
+    $c-levelTop: map-get($color-variants, "levelTop");
+    $c-level0: map-get($color-variants, "level0");
+    $c-level-1: map-get($color-variants, "level-1");
+    $c-level-2: map-get($color-variants, "level-2");
+    $c-level-3: map-get($color-variants, "level-3");
+    $c-disabled: map-get($color-variants, "disabled");
+
+    body {
+      &.#{$color-key} {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background-color: $c-levelTop;
+        padding: 0 46px;
+
+        font-family: 'roboto slab';
+        color: $c-font;
+
+        .globalContainer {
+          @include flexbox();
+          flex-direction: column;
+          align-items: center;
+          background-color: $c-level0;
+          width: 100%;
+          border: 1px solid $c-border;
+          margin: 46px auto;
+          position: relative;
+
+          @include box-shadow(1px, 2px, 4px, rgba(0,0,0,0.6), inset)
+
+          .box {
+            background: $c-level-2;
+            border: 1px solid $c-border;
+            //width: 100px;
+            //height: 100px;
+            margin-bottom: 120px;
+            flex-shrink: 0;
+            z-index: 2;
+            position: relative;
+
+            @include box-shadow(1px, 2px, 4px, rgba(0,0,0,0.6), inset)
+
+            &.namePlate {
+              width: 424px;
+              height: 195px;
+              border-top: 0;
+              border-radius: 0 0 100px 100px;
+            }
+
+            &.coverLetter {
+              width: 830px;
+              height: 420px;
+            }
+
+            &.kapsuliIntro {
+              color: $c-font-sub;
+              font-family: 'roboto slab';
+              font-size: 26px;
+              font-weight: 300;
+              padding: 18px 30px 9px 30px;
+            }
+
+            &.kapsuli {
+              width: 1100px;
+              max-width: 80vw;
+              //height: 700px;
+              @include flexbox();
+              flex-direction: row;
+
+              .playerBox {
+                width: 720px;
+                background: $c-level-3;
+                @include box-shadow(1px, 3px, 4px, rgba(0,0,0,0.5), inset)
+                @include flexbox();
+                justify-content: center;
+                align-items: center;
+                padding: 30px;
+
+
+                .playerSelectorsBox {
+                  border: 1px solid $c-border;
+
+                  .playerContainer {
+                    padding: 5px;
+                    .player {
+                      img {
+                        width: 100%;
+                        height: auto;
+                      }
+                    }
+                  }
+                  .selectors {
+                    height: 50px;
+                    @include flexbox();
+                    flex-direction: row;
+
+
+                    .select {
+                      width: 33%;
+                      cursor: pointer;
+                      background-color: $c-disabled;
+                      text-align: center;
+                      color: $c-level-3;
+                      font-size: 23px;
+                      font-weight: 300;
+                      padding-top: 7px;
+
+                      &:hover {
+                        background-color: lighten($c-disabled, 10%);
+                      }
+
+                      &.active {
+                        background-color: $c-font;
+                        &:hover {
+                          background-color: $c-font;
+                        }
+                      }
+
+                      &.kap {border-right: 1px solid darken($c-disabled, 10%);}
+                      &.lcs {width: 34%;}
+                      &.star {border-left: 1px solid darken($c-disabled, 10%);}
+
+                    }
+                  }
+                }
+              }
+              .contentBox {
+                width: 380px;
+                @include flexbox();
+                flex-direction: column;
+                position: relative;
+                border-left: 1px solid $c-border;
+
+                .title {
+                  background-color: $c-level-1;
+                  color: $c-font;
+                  font-family: 'roboto slab';
+                  text-align: center;
+                  border-bottom: 1px solid $c-border;
+                  margin: 0;
+                  padding: 20px 0;
+
+                  @include box-shadow(0px, 2px, 4px, rgba(0,0,0,0.6), inset);
+                }
+                .content {
+                  padding: 30px;
+                  font-weight: 300;
+                  @include box-shadow(0px, 2px, 4px, rgba(0,0,0,0.6), inset);
+
+                  .capsuleDescription {
+                    background-color: $c-font;
+                    color: $c-level-3;
+                    padding: 20px 25px;
+                    position: relative;
+                    margin-top: 40px;
+                    margin-bottom: 60px;
+
+                    h1 {margin: 0 0 10px 0; font-size: 18px; font-weight: 400;}
+                    p {margin: 0 0 5px 0; font-size: 17px; font-weight: 300;}
+
+                    &:after {
+                      content: '';
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      transform: translate(-100%, -50%);
+                      width: 0;
+                      height: 0;
+                      border-style: solid;
+                      border-width: 45px 40px 45px 0;
+                      border-color: transparent #e3cda4 transparent transparent;
+                    }
+
+                  }
+                }
+                .access {
+                  position: absolute;
+                  width: 100%;
+                  bottom: 0;
+                  background-color: $c-level-1;
+                  height: 50px;
+                  border-top: 1px solid $c-border;
+
+                }
+              }
+            }
+
+            &.skillsIntro {
+              color: $c-font-sub;
+              font-family: 'roboto slab';
+              font-size: 26px;
+              font-weight: 300;
+              padding: 18px 30px 9px 30px;
+
+            }
+
+            &.skills {
+              .skillSelectors {
+                @include flexbox();
+                flex-direction: row;
+                .skillselect {
+                  border-right: 1px solid $c-border;
+                  border-bottom: 1px solid $c-border;
+                  padding: 10px 30px;
+                  background-color: $c-level-1;
+                  color: $c-disabled;
+                  font-size: 2vw;
+                  font-weight: 300;
+                  cursor: pointer;
+
+                  &:nth-child(5) {
+                    border-right: 0;
+                  }
+
+                  &.active {
+                    border-bottom: 0;
+                    background-color: $c-level-3;
+                    color: $c-font;
+                  }
+                }
+              }
+              .skillContent {
+
+                background-color: $c-level-3;
+
+                -webkit-transition: width 2s; /* Safari */
+                transition: width 2s;
+                padding: 5vw;
+
+                .content {
+                  max-width: 50vw;
+                  p {
+                    font-family: 'roboto';
+                    font-size: 17px;
+                    margin-bottom: 10px;
+                  }
+                }
+
+              }
+            }
+
+            &.resumeIntro {
+              color: $c-font-sub;
+              font-family: 'roboto slab';
+              font-size: 26px;
+              font-weight: 300;
+              padding: 18px 30px 9px 30px;
+
+            }
+
+          }
+
+          .link {
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            top: 0;
+            z-index: 1;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: $c-border;
+          }
+        }
+      }
+    }
+  }
+}
