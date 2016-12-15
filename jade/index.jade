@@ -16,7 +16,19 @@ html(ng-app="riot-app")
   body.base
     .globalContainer(ng-controller="appCtrl")
       .box.namePlate
+        .content
+          h1 Thomas Ruehr
+          h2 digital designer - UI / UX
+          h2 Co-Founder of Kapsuli
       .box.coverLetter
+        .decoCornerTopRight
+          svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', width='32.875px', height='42.499px', viewbox='0 0 32.875 42.499', enable-background='new 0 0 32.875 42.499', xml:space='preserve')
+            path#interior(fill='#703031', d='M7.175,0C3.035,4.461,0.5,10.433,0.5,16.999c0,13.807,11.193,25,25,25c2.567,0,5.044-0.388,7.375-1.107V0\
+            H7.175z')
+            path#border(fill='#C67969', d='M25.5,41.499c-13.51,0-24.5-10.991-24.5-24.5C1,10.401,3.626,4.409,7.881,0H6.513\
+            C2.467,4.515,0,10.473,0,16.999c0,14.061,11.439,25.5,25.5,25.5c2.564,0,5.039-0.384,7.375-1.092v-1.045\
+            C30.546,41.099,28.069,41.499,25.5,41.499z')
+          .cornerDecoCircle
       .box.kapsuliIntro 
         p what can I bring to Riot Game right now
       .box.kapsuli
@@ -26,13 +38,14 @@ html(ng-app="riot-app")
               .player.kapsuliPlayer(ng-show="playerSelectorModel === 'kap'")
                 img(src="img/test-player-1.png", alt="")
               .player.lcsPlayer(ng-show="playerSelectorModel === 'lcs'")
-                img(src="img/test-player-2.png", alt="")
+                img(src="img/all-star.jpg", alt="")
               .player.allStarPlayer(ng-show="playerSelectorModel === 'star'")
-                img(src="img/test-player-3.png", alt="")
+                img(src="img/all-star.jpg", alt="")
             .selectors
               .kap.select(ng-model="playerSelectorModel" uib-btn-radio="'kap'") Kapsuli Player
-              .lcs.select(ng-model="playerSelectorModel" uib-btn-radio="'lcs'") LCS
               .star.select(ng-model="playerSelectorModel" uib-btn-radio="'star'") All Star 2016
+              .lcs.select(ng-model="playerSelectorModel" uib-btn-radio="'lcs'") LCS
+              
         .contentBox
           h1.title Kapsuli
           .content
@@ -85,12 +98,19 @@ html(ng-app="riot-app")
           .content.teamwork(ng-show="skillSelectorModel === 'teamwork'")
             p Although I am very efficient on my own, I work best as part of a unit. 
             p I am highly reliable when push comes to shove and will not hesitate to come to the rescue and make clutching pro flash taunt.
-      
-      .box.resumeIntro
-        p What have I done before ?
-        
+              
       .box.resume
         .content
+          p Have a look at what I have done before.
         .accessResume
+          
+      .box.contact
+        .content
+          h1 Contact
+          h2 Email : mtr.ruehr@gmail.com
+          h2 Phone : (xxx) xxx xxxx
       
       .link
+        
+      //.decoTest 
+        //img(src="img/test-deco.svg", alt="")

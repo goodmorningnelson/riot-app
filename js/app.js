@@ -5,7 +5,7 @@ angular.module('riot-app').controller('appCtrl',['$scope','$window',function ($s
     //angular media querry
     console.log($window.width,$window);
 
-    $scope.playerSelectorModel = 'lcs';
+    $scope.playerSelectorModel = 'star';
 
     $scope.skillSelectorModel = 'tool';
 }]);

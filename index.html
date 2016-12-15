@@ -14,8 +14,22 @@
   </head>
   <body class="base">
     <div ng-controller="appCtrl" class="globalContainer">
-      <div class="box namePlate"></div>
-      <div class="box coverLetter"></div>
+      <div class="box namePlate">
+        <div class="content">
+          <h1>Thomas Ruehr</h1>
+          <h2>digital designer - UI / UX</h2>
+          <h2>Co-Founder of Kapsuli</h2>
+        </div>
+      </div>
+      <div class="box coverLetter">
+        <div class="decoCornerTopRight">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32.875px" height="42.499px" viewbox="0 0 32.875 42.499" enable-background="new 0 0 32.875 42.499" xml:space="preserve">
+            <path id="interior" fill="#703031" d="M7.175,0C3.035,4.461,0.5,10.433,0.5,16.999c0,13.807,11.193,25,25,25c2.567,0,5.044-0.388,7.375-1.107V0            H7.175z"></path>
+            <path id="border" fill="#C67969" d="M25.5,41.499c-13.51,0-24.5-10.991-24.5-24.5C1,10.401,3.626,4.409,7.881,0H6.513            C2.467,4.515,0,10.473,0,16.999c0,14.061,11.439,25.5,25.5,25.5c2.564,0,5.039-0.384,7.375-1.092v-1.045            C30.546,41.099,28.069,41.499,25.5,41.499z"></path>
+          </svg>
+          <div class="cornerDecoCircle"></div>
+        </div>
+      </div>
       <div class="box kapsuliIntro"> 
         <p>what can I bring to Riot Game right now</p>
       </div>
@@ -24,13 +38,13 @@
           <div class="playerSelectorsBox">
             <div class="playerContainer">
               <div ng-show="playerSelectorModel === 'kap'" class="player kapsuliPlayer"><img src="img/test-player-1.png" alt=""></div>
-              <div ng-show="playerSelectorModel === 'lcs'" class="player lcsPlayer"><img src="img/test-player-2.png" alt=""></div>
-              <div ng-show="playerSelectorModel === 'star'" class="player allStarPlayer"><img src="img/test-player-3.png" alt=""></div>
+              <div ng-show="playerSelectorModel === 'lcs'" class="player lcsPlayer"><img src="img/all-star.jpg" alt=""></div>
+              <div ng-show="playerSelectorModel === 'star'" class="player allStarPlayer"><img src="img/all-star.jpg" alt=""></div>
             </div>
             <div class="selectors">
               <div ng-model="playerSelectorModel" uib-btn-radio="'kap'" class="kap select">Kapsuli Player</div>
-              <div ng-model="playerSelectorModel" uib-btn-radio="'lcs'" class="lcs select">LCS</div>
               <div ng-model="playerSelectorModel" uib-btn-radio="'star'" class="star select">All Star 2016</div>
+              <div ng-model="playerSelectorModel" uib-btn-radio="'lcs'" class="lcs select">LCS</div>
             </div>
           </div>
         </div>
@@ -99,14 +113,22 @@
           </div>
         </div>
       </div>
-      <div class="box resumeIntro">
-        <p>What have I done before ?</p>
-      </div>
       <div class="box resume">
-        <div class="content"></div>
+        <div class="content">
+          <p>Have a look at what I have done before.</p>
+        </div>
         <div class="accessResume"></div>
       </div>
+      <div class="box contact">
+        <div class="content">
+          <h1>Contact</h1>
+          <h2>Email : mtr.ruehr@gmail.com</h2>
+          <h2>Phone : (xxx) xxx xxxx</h2>
+        </div>
+      </div>
       <div class="link"></div>
+      <!--.decoTest //img(src="img/test-deco.svg", alt="")
+      -->
     </div>
   </body>
 </html>
