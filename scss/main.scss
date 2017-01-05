@@ -24,6 +24,37 @@
   //outline: 2px solid blue;
 }
 
+#coverAnchor {
+  position: relative;
+  display: block;
+  visibility: hidden;
+  top:-230px;
+}
+#kapsuliAnchor {
+  position: relative;
+  display: block;
+  visibility: hidden;
+  top:-50px;
+}
+#skillsAnchor {
+  position: relative;
+  display: block;
+  visibility: hidden;
+  top:-200px;
+}
+#resumeAnchor {
+  position: relative;
+  display: block;
+  visibility: hidden;
+  top:-400px;
+}
+#contactAnchor {
+  position: relative;
+  display: block;
+  visibility: hidden;
+  top:0px;
+}
+
 html {
   width: 100%;
   height: 100%;
@@ -39,6 +70,7 @@ html {
     $c-level-2: map-get($color-variants, "level-2");
     $c-level-3: map-get($color-variants, "level-3");
     $c-disabled: map-get($color-variants, "disabled");
+    $c-navBox: map-get($color-variants, "navBox");
 
     body {
       &.#{$color-key} {
@@ -46,7 +78,7 @@ html {
         height: 100%;
         margin: 0;
         background-color: $c-levelTop;
-        background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
+        //background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
         padding: 0 46px;
 
         font-family: 'roboto slab';
@@ -56,15 +88,15 @@ html {
           @include flexbox();
           flex-direction: column;
           align-items: center;
-          //background-color: $c-level0;
-          background-color: lighten($c-level0, 8%);
+          background-color: $c-level0;
+          //background-color: lighten($c-level0, 8%);
           width: 100%;
           border: 1px solid $c-border;
           margin: 46px auto;
           position: relative;
 
           //background-color: #703030;
-          background-image: url("https://www.transparenttextures.com/patterns/dark-leather.png");
+          //background-image: url("https://www.transparenttextures.com/patterns/dark-leather.png");
 
 
           @include box-shadow(1px, 2px, 4px, rgba(0,0,0,0.6), inset)
@@ -82,54 +114,120 @@ html {
             @include box-shadow(1px, 2px, 4px, rgba(0,0,0,0.6), inset)
 
             &.namePlate {
-              width: 424px;
-              height: 195px;
+              width: 340px;
+              height: 181px;
               border-top: 0;
-              border-radius: 0 0 100px 100px;
+              margin-bottom: 147px;
               text-align: center;
               position: relative;
 
+              padding: 0;
+
               .content {
                 position: absolute;
-                top: 50%;
+                top: 28px;
                 left: 50%;
-                transform: translate(-50%,-50%);
+                transform: translateX(-50%);
                 h1 {
-                  font-size: 30px;
-                  margin: 0 0 17px 0;
+                  font-size: 28px;
+                  margin: 0 0 2px 0;
                   white-space: nowrap;
                   font-weight: 700;
                 }
+                p {
+                  font-size: 16px;
+                  color: transparentize($c-disabled, 0.45);
+                }
+              }
+
+              .titles {
+                position: absolute;
+                bottom: 0;
+                height: 75px;
+                width: 100%;
+                border-top: 1px solid $c-border;
+                background-color: $c-level-3;
+                padding-top: 18px;
+
                 h2 {
-                  font-size: 22px;
+                  font-size: 15px;
                   font-weight: 400;
                   color: $c-disabled;
                   margin: 0 0 8px 0;
                   white-space: nowrap;
+                  line-height: 14px;
+                }
+              }
+
+              .decoBottom {
+                background-image: url(../img/name-deco.svg);
+                width: 170px;
+                height: 34px;
+                background-size: 170px 34px;
+                position: absolute;
+                bottom: -34px;
+                left: 50%;
+                transform: translateX(-50%);
+
+                .innerCircle {
+                  width: 20px;
+                  height: 20px;
+                  border: 1px solid $c-border;
+                  border-radius: 10px;
+                  background-color: $c-level-2;
+                  @include box-shadow(1px, 2px, 4px, rgba(0,0,0,0.6), inset)
+                  position: absolute;
+                  top: 5px;
+                  left: 50%;
+                  transform: translateX(-50%);
                 }
               }
             }
 
             &.coverLetter {
               width: 686px;
-              height: 313px;
+              //height: 313px;
+              padding: 70px 70px 50px 70px;
+              font-family: 'roboto';
+              font-weight: 300;
 
-              .decoCornerTopRight {
-                //background-image: url(../img/corner-tr.svg);
-                position: absolute;
-                top: -1px;
-                right: -1px;
+              p {
+                font-size: 16px;
 
-                svg {
-                  #interior {fill: lighten($c-level0, 8%);}
+                &.first {font-weight: 600; font-size: 18px}
+                &.tag1 { color: $c-disabled; margin-top: 20px; margin-bottom: 0px;font-size: 18px;}
+                &.tag2 { color: $c-disabled; font-size: 13px;}
+              }
+
+              .hireMeBox {
+                width: 100%;
+                height: 70px;
+                background-color: $c-font-sub;
+                margin-top: 30px;
+                font-family: 'roboto slab';
+                font-size: 18px;
+                position: relative;
+
+                p {
+                  position: absolute;
+                  top: 48%;
+                  left: 50%;
+                  transform: translate(-50%,-50%);
+                  white-space: nowrap;
+                  margin: 0;
                 }
-                //width: 32.88px;
-                //height: 32.88px;
-                //background-size: 32.88px 32.88px;
+
+              }
+
+              .decoCorner {
+                width: 50px;
+                height: 50px;
+                background-size: 50px 50px;
+                position: absolute;
+
                 .cornerDecoCircle {
                   position: absolute;
-                  top: 0px;
-                  right: -2px;
+
                   width: 34px;
                   height: 34px;
                   border: 1px solid $c-border;
@@ -137,6 +235,94 @@ html {
                   border-radius: 17px;
                   z-index: 2;
                 }
+
+                &.topLeft {
+                  background-image: url(../img/corner-tl.svg);
+                  top: -1px;
+                  left: -1px;
+
+                  .cornerDecoCircle {
+                    top: 0px;
+                    left: -2px;
+                  }
+                }
+                &.topRight {
+                  background-image: url(../img/corner-tr.svg);
+                  top: -1px;
+                  right: -1px;
+
+                  .cornerDecoCircle {
+                    top: 0px;
+                    right: -2px;
+                  }
+                }
+                &.botLeft {
+                  background-image: url(../img/corner-bl.svg);
+                  bottom: -1px;
+                  left: -1px;
+
+                  .cornerDecoCircle {
+                    bottom: 0px;
+                    left: -2px;
+                  }
+                }
+                &.botRight {
+                  background-image: url(../img/corner-br.svg);
+                  bottom: -1px;
+                  right: -1px;
+
+                  .cornerDecoCircle {
+                    bottom: 0px;
+                    right: -2px;
+                  }
+                }
+
+
+              }
+
+              .decoHeading {
+                background-image: url(../img/cover-deco.svg);
+                width: 164px;
+                height: 115px;
+                background-size: 164px 115px;
+                position: absolute;
+                top: -64px;
+                left: 50%;
+                transform: translateX(-50%);
+
+                .innerCircle {
+                  position: absolute;
+                  left: 41px;
+                  bottom: 10px;
+                  width: 82px;
+                  height: 82px;
+                  border: 1px solid $c-border;
+                  border-radius: 41px;
+                  background-color: $c-level-2;
+                  @include box-shadow(1px, 2px, 4px, rgba(0,0,0,0.6), inset)
+
+                  img {
+                    content:'';
+                    background-image: url(../img/cover-icon.svg);
+                    width: 60px;
+                    height: 60px;
+                    background-size: 60px 60px;
+                    position: absolute;
+                    top: 11px;
+                    left: 13px;
+
+
+                    &.shadow {
+                      -webkit-filter: drop-shadow( 0px 2px 4px rgba(0,0,0,0.6) );
+                      filter: drop-shadow( 0px 2px 4px rgba(0,0,0,0.6) );
+                    }
+                  }
+
+                }
+
+              }
+              .decoBottom {
+                @extend .decorationBot;
               }
             }
 
@@ -146,6 +332,9 @@ html {
               font-size: 26px;
               font-weight: 300;
               padding: 18px 30px 9px 30px;
+
+              .decoTop {@extend .decorationTop;}
+              .decoBot {@extend .decorationBot;}
             }
 
             &.kapsuli {
@@ -161,28 +350,89 @@ html {
                 @include box-shadow(1px, 3px, 4px, rgba(0,0,0,0.5), inset)
                 @include flexbox();
                 justify-content: center;
-                align-items: center;
+                //align-items: center;
                 padding: 30px;
 
 
                 .playerSelectorsBox {
+                  position: absolute;
+                  bottom: 13%;
                   border: 1px solid $c-border;
+                  width: 100%;
+                  max-width: 550px;
 
                   .playerContainer {
-                    padding: 5px;
+                    //padding: 5px;
+                    position: relative;
+                    perspective: 1500px;
                     .player {
+                      position: absolute;
+                      bottom: 10px;
+                      left: 0;
+                      //display: none;
+                      z-index: 1;
+                      //transform: scale(1);
+                      opacity: 0;
+                      //visibility: hidden;
+                      transform-style: preserve-3d;
+
                       img {
                         width: 100%;
                         max-width: 550px;
                         height: auto;
                       }
+
+                      @include animTowards(on) {
+                        -webkit-animation: flip-on 0.6s linear forwards;
+                        animation: flip-on 0.6s linear forwards;
+                        @-webkit-keyframes flip-on {
+                          0% { transform: rotateY(180deg); z-index: 1; opacity: 0;}
+                          49.9% {z-index: 1; opacity: 0; }
+                          50% {transform: rotateY(90deg); z-index: 2; opacity: 1;}
+                          100% { transform: rotateY(0deg); z-index: 2; opacity: 1;}
+                        }
+                        @keyframes flip-on {
+                          0% { transform: rotateY(180deg); z-index: 1; opacity: 0;}
+                          49.9% {z-index: 1; opacity: 0; }
+                          50% {transform: rotateY(90deg); z-index: 2; opacity: 1;}
+                          100% { transform: rotateY(0deg); z-index: 2; opacity: 1;}
+                        }
+                      }
+
+                      @include animReturn(on) {
+                        -webkit-animation: flip-off 0.6s linear forwards;
+                        animation: flip-off 0.6s linear forwards;
+                        @-webkit-keyframes flip-off {
+                          0% { transform: rotateY(0deg); z-index: 3; opacity: 1;}
+                          //49.9% {transform: rotateY(90deg); z-index: 2;}
+                          50% {transform: rotateY(-90deg); z-index: 3; opacity: 1;}
+                          50.1% {z-index: 0; opacity: 0 ;}
+                          100% { transform: rotateY(-180deg); z-index: 0; opacity: 0 ;}
+                        }
+                        @keyframes flip-off {
+                          0% { transform: rotateY(0deg); z-index: 3; opacity: 1;}
+                          //49.9% {transform: rotateY(90deg); z-index: 2;}
+                          50% {transform: rotateY(-90deg); z-index: 3; opacity: 1;}
+                          50.1% {z-index: 0; opacity: 0 ;}
+                          100% { transform: rotateY(-180deg); z-index: 0; opacity: 0;}
+                        }
+                      }
+
+                      &.on {
+                        //z-index: 999;
+                        //position: relative;
+                        //display: block;
+
+
+                      }
+
                     }
                   }
                   .selectors {
                     height: 50px;
                     @include flexbox();
                     flex-direction: row;
-
+                    //position: relative;
 
                     .select {
                       width: 33%;
@@ -206,8 +456,8 @@ html {
                       }
 
                       &.kap {border-right: 1px solid darken($c-disabled, 10%);}
-                      &.lcs {width: 34%;}
-                      &.star {border-left: 1px solid darken($c-disabled, 10%);}
+                      &.lcs {border-left: 1px solid darken($c-disabled, 10%);}
+                      &.star {width: 34%;}
 
                     }
                   }
@@ -293,6 +543,7 @@ html {
 
                 }
               }
+              .decoBot {@extend .decorationBot;}
             }
 
             &.skillsIntro {
@@ -301,22 +552,33 @@ html {
               font-size: 26px;
               font-weight: 300;
               padding: 18px 30px 9px 30px;
+              margin-bottom: 206px;
+              width: 500px;
+
+              .decoTop {@extend .decorationTop;}
+              .decoBot {@extend .decorationBot;}
 
             }
 
             &.skills {
+              margin-bottom: 172px;
+              max-width: 70vw;
               .skillSelectors {
                 @include flexbox();
                 flex-direction: row;
                 .skillselect {
                   border-right: 1px solid $c-border;
                   border-bottom: 1px solid $c-border;
-                  padding: 10px 30px;
+                  padding: 10px 0;
                   background-color: $c-level-1;
                   color: $c-disabled;
                   font-size: 2vw;
                   font-weight: 300;
                   cursor: pointer;
+
+
+                  flex-grow: 1;
+                  text-align: center;
 
                   &:hover {
                     background-color: lighten($c-level-1, 3%);
@@ -339,18 +601,365 @@ html {
 
                 -webkit-transition: width 2s; /* Safari */
                 transition: width 2s;
-                padding: 5vw;
+                //padding: 3vw 5vw 4vw 5vw;
+
+
 
                 .content {
-                  max-width: 50vw;
+                  padding: 3vw 5vw 4vw 5vw;
+                  //max-width: 50vw;
+                  &.tool {
+                    padding: 3vw 5vw 35px 5vw;
+                  }
+                  &.knowledge {
+                    padding: 3vw 5vw 1vw 5vw;
+                  }
                   p {
                     font-family: 'roboto';
-                    font-size: 17px;
+                    font-weight: 300;
+                    font-size: 15px;
                     margin-bottom: 10px;
+
+                    &.quote {
+                      color: transparentize($c-disabled, 0.5);
+                      font-size: 20px;
+                      font-weight: 600;
+                      font-style: italic;
+                      margin-bottom: 18px;
+                    }
+
+                    &.note {
+                      color: transparentize($c-disabled, 0.2);
+                      font-size: 13px;
+                      font-weight: 400;
+                    }
+                  }
+
+                  .dedicationDeco {
+                    width: 90%;
+                    margin: 0 auto;
+                    opacity: 1;
+                    img {
+                      width: 100%;
+                      height: auto;
+                    }
+                  }
+
+                  .toolVisuBox {
+                    @include flexbox();
+                    flex-direction: row;
+                    justify-content: center;
+                    margin-top: 50px;
+
+                    .codeWindow {
+                      width: 430px;
+                      height: 150px;
+
+                      border: 1px solid $c-disabled;
+                      position: relative;
+
+                      .code {
+                        overflow: hidden;
+                        width: 100%;
+                        height: 100%;
+                        img {
+                          width: 100%;
+                          height: auto;
+                        }
+                      }
+
+                      .kent {
+                        position: absolute;
+                        left: -226px;
+                        top: -6px;
+                        width: 225px;
+                        img {
+                          width: 100%;
+                          height: auto;
+                        }
+
+                      }
+                      .pepper {
+                        position: absolute;
+                        right: -234px;
+                        top: -13px;
+                        width: 225px;
+                        img {
+                          width: 100%;
+                          height: auto;
+                        }
+
+                      }
+                    }
+
+                    .visuBoxWrap {
+                      position: relative;
+                      flex-grow: 1;
+                      //flex-shrink: 1;
+                      //margin: 0 20px;
+                      &:after {
+                        content: '';
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        bottom: -30px;
+                        color: $c-disabled;
+                        white-space: nowrap;
+                        font-family: 'roboto';
+                      }
+
+                      &.ve:after {content: 'Do you need vector graphics ?';}
+                      &.re:after {content: 'A more realistic approach ?';}
+                      &.pi:after {content: 'Maybe something else entirely ?';}
+
+                      .visuBox {
+                        width: 222px;
+                        height: 222px;
+                        border-radius: 111px;
+                        border: 1px solid $c-border;
+                        background-color: $c-level-3;
+                        margin: 0 15px;
+                        position: relative;
+                        overflow: hidden;
+
+                        &.v {
+                          background-color: #C5F7FF;
+                          @include box-shadow(2px, 4px, 4px, rgba(0,0,0,0.5), inset);
+                        }
+                        &.r {
+                          background-color: #191F27;
+                          @include box-shadow(2px, 4px, 4px, rgba(0,0,0,0.5), inset);
+                        }
+                        &.p {
+                          background-color: #191F27;
+                          @include box-shadow(2px, 4px, 4px, rgba(0,0,0,0.5), inset);
+                        }
+                        .vecto {
+                          position: absolute;
+                          top: 16px;
+                          left: 24px;
+                          width: 75%;
+                          height: auto;
+                        }
+                        .realist {
+                          position: absolute;
+                          height: 100%;
+                          width: auto;
+                          left: -18px;
+                        }
+                        .pixel {
+                          position: absolute;
+                          width: 100%;
+                          height: auto;
+                          top: 37px;
+                        }
+
+
+                      }
+                    }
+                  }
+
+                  .productDeco {
+                    @include flexbox();
+                    flex-direction: row;
+                    align-items: center;
+                    margin-top: 50px;
+
+                    .productDecoBox {
+                      img {width: 100%; height: auto;}
+                    }
+                    .shroomBox {
+                      width: 222px;
+                      height: 222px;
+                      position: relative;
+                      margin: 0 auto;
+                      cursor: pointer;
+                      flex-shrink: 0;
+                      border: 1px solid $c-border;
+                      //border: 4px outset $c-disabled;
+                      background-color: $c-level-2;
+                      border-radius: 111px;
+                      @include box-shadow(2px, 4px, 4px, rgba(0,0,0,0.5), inset);
+
+                      .base {
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        bottom: 1px;
+                      }
+                      .top {
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        top: 45px;
+                      }
+                      .bot {
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        top: 100px;
+                      }
+
+                      .sprite {
+                        display: none;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%,-50%);
+                        width: 200px;
+                        height: 200px;
+                        background: url(../img/shroom-sprites.svg) left center;
+
+                        -webkit-animation: play 0.8s steps(8);
+                        animation: play 0.8s steps(8);
+                        @-webkit-keyframes play {
+                        	100% { background-position: -1600px; }
+                        }
+                        @keyframes play {
+                        	100% { background-position: -1600px; }
+                        }
+                      }
+
+                      .refresh {
+                        position: absolute;
+                        top: 48%;
+                        left: 50%;
+                        transform: translate(-50%,-50%);
+                        opacity: 1;
+                        visibility: visible;
+                        display: none;
+
+                        -webkit-animation: refresh 1.5s;
+                        animation: refresh 1.5s;
+                        @-webkit-keyframes refresh {
+                          0% {opacity: 0; visibility: hidden;}
+                          80% {opacity: 0; visibility: hidden;}
+                        	100% {opacity: 1; visibility: visible;}
+                        }
+                        @keyframes refresh {
+                          0% {opacity: 0; visibility: hidden;}
+                          80% {opacity: 0; visibility: hidden;}
+                        	100% {opacity: 1; visibility: visible;}
+                        }
+
+                        &:hover {
+                          color: lighten($c-level-1, 10%);
+                        }
+                      }
+                      &:active {
+                        .top {top: 60px;}
+                      }
+                      &.active {
+                        .sprite {display: block;}
+                        .top {display: none;}
+                        .bot {display: none;}
+                        .refresh {display: block;}
+                      }
+                      &:after {
+                        content: 'click on me';
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translate(-50%, 40%);
+                        background-color: $c-level-2;
+                        border: 1px solid $c-border;
+                        color: $c-border;
+                        text-align: center;
+                        white-space: nowrap;
+                        padding: 4px 10px 6px 10px;
+                        font-size: 18px;
+                        font-weight: 300;
+                      }
+                    }
+                  }
+
+                  .iconBox {
+                    @include flexbox();
+                    flex-direction: row;
+                    width: 100%;
+                    justify-content: center;
+                    margin-top: 50px;
+
+
+
+                    .bloc {
+                      flex-grow: 1;
+                      margin: 0 15px;
+                      position: relative;
+                      max-width: 70px;
+                      opacity: 0.3;
+
+                      &:hover {opacity: 1;}
+                      &:after {
+                        content: '';
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        bottom: -30px;
+                        text-align: center;
+                        color: #fff;
+                        font-family: 'roboto';
+                      }
+
+                      &.slack:after {content: 'Slack';}
+                      &.github:after {content: 'GitHub';}
+                      &.gitkraken:after {content: 'GitKraken';}
+                      &.gitlab:after {content: 'GitLab';}
+                      &.invision:after {content: 'Invision';}
+                      &.proto:after {content: 'Proto.io';}
+                      &.trello:after {content: 'Trello';}
+                      &.skype:after {content: 'Skype';}
+
+                       img {
+                         width: 100%;
+                         height: auto;
+                       }
+                    }
                   }
                 }
 
               }
+
+              .decoHeading {
+                background-image: url(../img/skill-deco.svg);
+                width: 506px;
+                height: 116px;
+                background-size: 506px 116px;
+                position: absolute;
+                top: -116px;
+                left: 50%;
+                transform: translateX(-50%);
+
+                .innerCircle {
+                  width: 81px;
+                  height: 81px;
+                  border: 1px solid $c-border;
+                  background-color: $c-level-2;
+                  @include box-shadow(1px, 2px, 4px, rgba(0,0,0,0.6), inset);
+                  border-radius: 41px;
+                  position: absolute;
+                  bottom: 14px;
+                  left: 50%;
+                  transform: translateX(-50%);
+
+                  img {
+                    content:'';
+                    background-image: url(../img/skill-icon.svg);
+                    width: 65px;
+                    height: 65px;
+                    background-size: 65px 65px;
+                    position: absolute;
+                    top: 6px;
+                    left: 7px;
+
+                    &.shadow {
+                      -webkit-filter: drop-shadow( 0px 2px 4px rgba(0,0,0,0.6) );
+                      filter: drop-shadow( 0px 2px 4px rgba(0,0,0,0.6) );
+                    }
+                  }
+                }
+              }
+              .decoBot {@extend .decorationBot;}
             }
 
             &.resumeIntro {
@@ -363,8 +972,30 @@ html {
             }
 
             &.resume {
+              width: 550px;
+              margin-bottom: 150px;
               .content {
-                padding: 30px 30px 70px 30px;
+                padding: 56px 30px 70px 30px;
+                p {
+                  color: $c-disabled;
+                  font-size: 22px;
+                  margin-bottom: 20px;
+                }
+                ul {
+                  padding-left: 17px;
+                  li {
+                    margin-bottom: 8px;
+                    p {
+                      font-family: 'roboto';
+                      font-size: 17px;
+                      font-weight: 300;
+                      margin: 0;
+                      color: $c-font;
+                      //color: $c-disabled;
+                    }
+                  }
+                }
+
               }
               .accessResume {
                 position: absolute;
@@ -394,6 +1025,45 @@ html {
                   }
                 }
               }
+            .decoHeading {
+              background-image: url(../img/resume-deco.svg);
+              width: 352px;
+              height: 118px;
+              background-size: 352px 118px;
+              position: absolute;
+              top: -72px;
+              left: 50%;
+              transform: translateX(-50%);
+
+              .innerCircle {
+                position: absolute;
+                left: 135px;
+                bottom: 10px;
+                width: 82px;
+                height: 82px;
+                border: 1px solid $c-border;
+                border-radius: 41px;
+                background-color: $c-level-2;
+                @include box-shadow(1px, 2px, 4px, rgba(0,0,0,0.6), inset)
+
+                img {
+                  content:'';
+                  //background-image: url(../img/cover-icon.svg);
+                  width: 50px;
+                  height: 50px;
+                  background-size: 50px 50px;
+                  position: absolute;
+                  top: 15px;
+                  left: 15px;
+
+                  &.shadow {
+                    -webkit-filter: drop-shadow( 0px 2px 4px rgba(0,0,0,0.6) );
+                    filter: drop-shadow( 0px 2px 4px rgba(0,0,0,0.6) );
+                  }
+                }
+
+              }
+            }
             }
 
             &.contact {
@@ -429,10 +1099,169 @@ html {
             background-color: $c-border;
           }
 
+          .navBox {
+            position: fixed;
+            left:0;
+            top: 50%;
+            z-index: 2;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 315px;
+            background-color: $c-navBox;
+            border-top: 1px solid $c-border;
+            border-right: 1px solid $c-border;
+            border-bottom: 1px solid $c-border;
+            padding: 20px 0;
+            @include box-shadow(0px, 2px, 4px, rgba(0,0,0,0.6));
+
+            @include flexbox();
+            flex-direction: row;
+
+              .diamondBox {
+                @include flexbox();
+                flex-direction: column;
+                flex-shrink: 0;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 3;
+
+                .diamond {
+                	width: 20px;
+                  height: 20px;
+                  background-color: $c-level0;
+                  border: 1px solid $c-border;
+                  transform: rotate(45deg);
+                  margin: 13px 0;
+                  cursor: pointer;
+                  position: relative;
+                  @include box-shadow(1px, 2px, 4px, rgba(0,0,0,0.6), inset)
+                  z-index: 99;
+
+                  &.on {
+                    background-color: $c-font;
+                    @include box-shadow(0px, 0px, 0px, rgba(0,0,0,0.6), inset)
+
+                    &:after {
+                      content: '';
+                      position: absolute;
+                      top:0;
+                      left:0;
+                      width: 20px;
+                      height: 20px;
+                      background-color: $c-font;
+                      transform: rotate(45deg);
+                      filter: blur(10px);
+                    }
+                  }
+                }
+                &:after {
+                  position: absolute;
+                  content: '';
+                  width: 1px;
+                  height: 80%;
+                  background-color: $c-border;
+                  top:20px;
+                  left: 50%;
+                  transform: translateX(-50%);
+                }
+              }
+              .descriptionBox {
+                @include flexbox();
+                flex-direction: column;
+                flex-shrink: 0;
+                position: absolute;
+                right: -81px;
+
+                a {
+                  text-decoration: none;
+                  .description {
+                    color: transparentize($c-border, 0.6);
+                    font-size: 19px;
+                    font-weight: 300;
+                    margin: 9.5px 0;
+                    cursor: pointer;
+
+                    &.on {
+                      color: $c-border;
+                    }
+                  }
+                }
+              }
+              .githubLink {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 30px;
+                height: 30px;
+                border-radius: 15px;
+                background-color: transparentize($c-font, 0.2);
+                border: 1px solid $c-border;
+                cursor: pointer;
+
+                &:hover {
+                  background-color: $c-font;
+                  .tooltipGit {opacity: 1;}
+                }
+
+                &:after {
+                  content: '';
+                  background-image: url(../img/github-mini.svg);
+                  background-size: 22px 22px;
+                  width: 22px;
+                  height: 22px;
+                  position: absolute;
+                  left: 50%;
+                  top: 50%;
+                  transform: translate(-50%,-50%);
+                }
+
+                .tooltipGit {
+                  width: 135px;
+                  position: absolute;
+                  left: 58px;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  padding: 10px;
+                  background-color: rgba(0,0,0,0.5);
+                  border-radius: 6px;
+                  color: white;
+                  font-weight: 300;
+                  font-size: 13px;
+                  opacity: 0;
+
+                  -webkit-transition: all 0.4s; /* Safari */
+                  transition: all 0.4s;
+
+                  &:after {
+                    content: '';
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 10px 10px 10px 0;
+                    border-color: transparent rgba(0,0,0,0.5) transparent transparent;
+                    position: absolute;
+                    left: -10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                  }
+                }
+              }
+          }
+
+          .scrollDebug {
+            position: fixed;
+            bottom: 50px;
+            right: 100px;
+            display: none;
+          }
+
           .decoTest {
             position: absolute;
             top: 100px;
-            left: 100px;
+            left: 160px;
+            z-index: 99999;
           }
         }
       }

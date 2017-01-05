@@ -1,1 +1,25 @@
 $main-var: 10px;
+
+//deco commun
+
+.decorationBot {
+  background-image: url(../img/commun-decoBot.svg);
+  width: 124px;
+  height: 23px;
+  background-size: 124px 23px;
+  position: absolute;
+  bottom: -23px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.decorationTop {
+  background-image: url(../img/commun-decoTop.svg);
+  width: 124px;
+  height: 23px;
+  background-size: 124px 23px;
+  position: absolute;
+  top: -23px;
+  left: 50%;
+  transform: translateX(-50%);
+}

@@ -1,37 +1,8 @@
-//need controller for things to work.
-angular.module('riot-app', ['ngAnimate', 'ngSanitize', 'ui.bootstrap']);
-
-angular.module('riot-app').controller('appCtrl',['$scope','$window',function ($scope,$window) {
-    //angular media querry
-    console.log($window.width,$window);
-
-    $scope.playerSelectorModel = 'star';
-
-    $scope.skillSelectorModel = 'tool';
-
-    //$scope.navBtnModel = 'cover';
-
-    $scope.scroll = 0;
-}]);
-
-angular.module('riot-app').directive('scrollPosition', ['$document', function($document) {
-  return {
-    scope: {
-      scroll: '=scrollPosition'
-    },
-    link: function(scope, element, attrs) {
-      var windowEl = angular.element($document);
-      var handler = function() {
-        scope.scroll = windowEl.scrollTop();
-      }
-      windowEl.on('scroll', scope.$apply.bind(scope, handler));
-      handler();
-    }
-  };
-}]);
-
-
-angular.module('riot-app').directive('anchorSmoothScroll',['$location', function($location) {
+/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Anchor Smooth Scroll - Smooth scroll to the given anchor on click
+*   adapted from this stackoverflow answer: http://stackoverflow.com/a/21918502/257494
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+angular.module('riot-app').directive('anchorSmoothScroll', function($location) {
     'use strict';
 
     return {
@@ -78,8 +49,8 @@ angular.module('riot-app').directive('anchorSmoothScroll',['$location', function
                 if (distance < 100) {
                     scrollTo(0, stopY); return;
                 }
-                var speed = Math.round(distance / 80);
-                //if (speed >= 20) speed = 100;
+                var speed = Math.round(distance / 100);
+                if (speed >= 20) speed = 20;
                 var step = Math.round(distance / 25);
                 var leapY = stopY > startY ? startY + step : startY - step;
                 var timer = 0;
@@ -126,4 +97,4 @@ angular.module('riot-app').directive('anchorSmoothScroll',['$location', function
             }
         }
     };
-}]);
+});
